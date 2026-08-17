@@ -1,6 +1,6 @@
 # XUL Agent Tools
 
-> **`@xul-chain/dsh-agent-tools`** —— 把 XUL Chain（Chain ID 12310 / 0x3016，EVM 兼容）的链上读写能力，封装成可被 AI agent / dsh 直接调用的工具集。让 AI 代理用自然语言**读链上状态、广播已签名交易**，是 "AI 原生公链" 对外最底层的 agent 接入骨架。
+> **`xul-dsh-agent-tools`** —— 把 XUL Chain（Chain ID 12310 / 0x3016，EVM 兼容）的链上读写能力，封装成可被 AI agent / dsh 直接调用的工具集。让 AI 代理用自然语言**读链上状态、广播已签名交易**，是 "AI 原生公链" 对外最底层的 agent 接入骨架。
 
 > 📦 **开源许可**：本包以 **MIT 协议**开源（版权归 XUL Chain）。任何人可免费使用、修改、分发。
 >
@@ -33,7 +33,7 @@
 本包已发布到公开 npm，核心工具定义可直接 import：
 
 ```ts
-import { tools } from '@xul-chain/dsh-agent-tools'
+import { tools } from 'xul-dsh-agent-tools'
 // tools = 9 个 xul_* 工具的注册描述，可被任意 agent 框架（LangChain / 自研 / dsh）消费
 ```
 
@@ -60,7 +60,7 @@ pnpm run dsh web
 ```
 
 脚本行为：
-- 把插件以 junction（Windows）/ symlink（macOS/Linux）链入 `$DSH_HOME/profiles/node_modules/@xul-chain/dsh-agent-tools`
+- 把插件以 junction（Windows）/ symlink（macOS/Linux）链入 `$DSH_HOME/profiles/node_modules/xul-dsh-agent-tools`
 - 写入或合并 `$DSH_HOME/profiles/web/cordis.patch.yml`（插入 `xul-agent-tools` 挂载项）
 - `$DSH_HOME` 默认 `~/.dsh`，可用环境变量覆盖
 
@@ -69,10 +69,10 @@ pnpm run dsh web
 ```sh
 # 1) 链入 profile 的 node_modules
 #    Windows (PowerShell):
-#      New-Item -ItemType Junction -Path "$env:USERPROFILE/.dsh/profiles/node_modules/@xul-chain/dsh-agent-tools" -Target (Resolve-Path .)
+#      New-Item -ItemType Junction -Path "$env:USERPROFILE/.dsh/profiles/node_modules/xul-dsh-agent-tools" -Target (Resolve-Path .)
 #    macOS/Linux:
-#      mkdir -p ~/.dsh/profiles/node_modules/@xul-chain
-#      ln -s "$(pwd)" ~/.dsh/profiles/node_modules/@xul-chain/dsh-agent-tools
+#      mkdir -p ~/.dsh/profiles/node_modules
+#      ln -s "$(pwd)" ~/.dsh/profiles/node_modules/xul-dsh-agent-tools
 
 # 2) 挂载 patch
 mkdir -p "$DSH_HOME/profiles/web"
@@ -97,7 +97,7 @@ patch 示例：
 ```yaml
 - insert:
     - id: xul-agent-tools
-      name: '@xul-chain/dsh-agent-tools'
+      name: 'xul-dsh-agent-tools'
       config:
         rpcUrl: 'https://scan.xulchain.com/rpc'   # 文档指定公共 RPC
         chainId: 12310

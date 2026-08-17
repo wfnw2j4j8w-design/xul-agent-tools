@@ -3,7 +3,7 @@
  * XUL Agent Tools — one-click injector for the dsh web profile.
  *
  * Replaces the manual junction + patch steps so a partner can onboard in one command:
- *   1. symlinks the plugin into $DSH_HOME/profiles/node_modules/@xul-chain/dsh-agent-tools
+ *   1. symlinks the plugin into $DSH_HOME/profiles/node_modules/xul-dsh-agent-tools
  *   2. writes / merges the cordis.patch.yml that mounts the plugin into the web profile
  *
  * Cross-platform: Windows uses a directory junction, POSIX uses a symlink.
@@ -16,14 +16,13 @@ import { fileURLToPath } from 'node:url'
 import os from 'node:os'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const pluginDir = resolve(__dirname, '..') // packages/xul/tool-xul-chain-status
-const packageName = '@xul-chain/dsh-agent-tools'
+const pluginDir = resolve(__dirname, '..') // xul-agent-tools repo root (was packages/xul/tool-xul-chain-status)
+const packageName = 'xul-dsh-agent-tools'
 const pluginId = 'xul-agent-tools'
 
 const dshHome = process.env.DSH_HOME || join(os.homedir(), '.dsh')
 const nmDir = join(dshHome, 'profiles', 'node_modules')
-const scopeDir = join(nmDir, '@xul-chain')
-const linkPath = join(scopeDir, 'dsh-agent-tools')
+const linkPath = join(nmDir, 'xul-dsh-agent-tools')
 const webDir = join(dshHome, 'profiles', 'web')
 const patchPath = join(webDir, 'cordis.patch.yml')
 
@@ -47,7 +46,7 @@ function isLinkStale(p) {
 }
 
 function makeLink() {
-  mkdirSync(scopeDir, { recursive: true })
+  mkdirSync(nmDir, { recursive: true })
   if (existsSync(linkPath)) {
     if (!isLinkStale(linkPath)) {
       console.log(`• link already correct: ${linkPath}`)

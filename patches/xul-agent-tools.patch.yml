@@ -10,7 +10,7 @@
 
 - insert:
     - id: xul-agent-tools
-      name: '@xul-chain/dsh-agent-tools'
+      name: 'xul-dsh-agent-tools'
       config:
         rpcUrl: 'https://scan.xulchain.com/rpc'
         chainId: 12310

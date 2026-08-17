@@ -1,11 +1,8 @@
 {
-  "name": "@xul-chain/dsh-agent-tools",
+  "name": "xul-dsh-agent-tools",
   "description": "XUL Agent Tools — on-chain read & broadcast toolkit for XUL Chain (Chain ID 12310) over eth_* JSON-RPC. Usable both as a dsh plugin and as an importable SDK.",
   "version": "0.1.0",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "author": "XUL Chain",
   "repository": {
     "type": "git",
