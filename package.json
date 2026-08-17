@@ -1,12 +1,18 @@
 {
   "name": "@xul-chain/dsh-agent-tools",
-  "description": "XUL Agent Tools — model-facing dsh plugin that gives AI agents on-chain read & broadcast access to XUL Chain (Chain ID 12310) over eth_* JSON-RPC.",
+  "description": "XUL Agent Tools — on-chain read & broadcast toolkit for XUL Chain (Chain ID 12310) over eth_* JSON-RPC. Usable both as a dsh plugin and as an importable SDK.",
   "version": "0.1.0",
-  "publishConfig": { "access": "restricted" },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "XUL Chain",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wfnw2j4j8w-design/xul-chain-canonical.git",
-    "directory": "packages/xul/tool-xul-chain-status"
+    "url": "git+https://github.com/wfnw2j4j8w-design/xul-agent-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wfnw2j4j8w-design/xul-agent-tools/issues"
   },
   "homepage": "https://xulchain.com/docs.html",
   "type": "module",
@@ -20,10 +26,24 @@
     "./src/*": "./src/*",
     "./package.json": "./package.json"
   },
-  "files": ["lib/index.js", "lib/types/**/*.js", "lib/types/**/*.d.ts"],
-  "license": "UNLICENSED",
+  "files": [
+    "lib",
+    "scripts",
+    "patches",
+    "README.md"
+  ],
+  "keywords": [
+    "xul",
+    "blockchain",
+    "ethereum",
+    "evm",
+    "web3",
+    "agent",
+    "tools",
+    "json-rpc"
+  ],
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:^"
+    "@deepseek-ai/schemastery": "^3.18.1"
   },
   "peerDependencies": {
     "@deepseek-ai/dsh-tools": "workspace:^",
