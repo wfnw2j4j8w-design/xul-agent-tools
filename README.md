@@ -28,10 +28,22 @@
 
 ---
 
-## 一、作为 SDK 使用（任意项目，脱离 dsh 亦可）
+## 一、获取与作为 SDK 使用（任意项目，脱离 dsh 亦可）
 
-本包已发布到公开 npm，核心工具定义可直接 import：
+> 📥 **当前获取主渠道：GitHub 直装**（本包暂未上架 npmjs.org 官方源——因 npm Organization 订阅过期、官方源发布暂缓；仓已 PUBLIC，`lib/` 随仓提交，装即用，无需 npmjs 账号）。
 
+作为 npm 依赖安装（自动拉取公开仓）：
+```sh
+npm install github:wfnw2j4j8w-design/xul-agent-tools
+```
+
+或克隆源码：
+```sh
+git clone https://github.com/wfnw2j4j8w-design/xul-agent-tools.git
+cd xul-agent-tools
+```
+
+核心工具定义可直接 import：
 ```ts
 import { tools } from 'xul-dsh-agent-tools'
 // tools = 9 个 xul_* 工具的注册描述，可被任意 agent 框架（LangChain / 自研 / dsh）消费
@@ -46,13 +58,14 @@ import { tools } from 'xul-dsh-agent-tools'
 如果你用 [DeepSeek Harness (dsh)](https://github.com/deepseek-ai/deepseek-harness)，可一键把本工具挂进 dsh 的 web profile：
 
 ```sh
+# 方式 A（推荐）：已用 npm 装到项目 node_modules（见「一」）
+cd node_modules/xul-dsh-agent-tools
+node scripts/inject.mjs
+
+# 方式 B：克隆源码
 git clone https://github.com/wfnw2j4j8w-design/xul-agent-tools.git
 cd xul-agent-tools
-pnpm install
 pnpm run build                 # 编译 lib/
-
-# 一键把插件挂进你的 dsh web profile（建 junction + 写 patch）
-node scripts/inject.mjs
 
 # 启动带 XUL 工具的 dsh Web UI
 pnpm run dsh web
