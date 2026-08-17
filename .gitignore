@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build artifacts (lib/ is committed on purpose — the package loads compiled output directly)
+*.tsbuildinfo
+dist/
+dist-exe/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Local logs / caches
+*.log
+.cache/
+tmp/

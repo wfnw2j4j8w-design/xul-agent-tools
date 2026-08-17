@@ -1,0 +1,17 @@
+# XUL Agent Tools — mount into the dsh web profile.
+#
+# rpcUrl points at the documented XUL public RPC (scan.xulchain.com/rpc, Chain ID 12310 / 0x3016).
+# Override per-deployment via the XUL_RPC_URL env var or by editing rpcUrl below.
+#
+# Usage (pick one):
+#   node scripts/inject.mjs        # one-click: creates the profile junction + this patch
+#   OR place this file as $DSH_HOME/profiles/web/cordis.patch.yml
+#   OR: npx @deepseek-ai/dsh web --patch ./packages/xul/tool-xul-chain-status/patches/xul-agent-tools.patch.yml
+
+- insert:
+    - id: xul-agent-tools
+      name: '@xul-chain/dsh-agent-tools'
+      config:
+        rpcUrl: 'https://scan.xulchain.com/rpc'
+        chainId: 12310
+        # consensusRpcUrl: 'http://your-beacon-node:3500'   # 仅 xul_validators 需要；XUL eth RPC 不暴露验证人
