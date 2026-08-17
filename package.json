@@ -46,8 +46,8 @@
     "@deepseek-ai/schemastery": "^3.18.1"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-tools": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/cordis": "*"
   },
   "devDependencies": {
     "@deepseek-ai/dsh-tools": "workspace:^",
